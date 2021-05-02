@@ -19,7 +19,9 @@
     "@angular/platform-browser": "~11.2.11",
     "@angular/platform-browser-dynamic": "~11.2.11",
     "@angular/router": "~11.2.11",
+    "blockchain": "github:adityabandal/blockchain",
     "rxjs": "~6.6.0",
+    "savjeecoin": "github:Savjee/SavjeeCoin",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
   },
