@@ -23,22 +23,22 @@
 
         <span *ngIf="tx.fromAddress === null">System</span>
 
-        <!-- <span
+        <span
           class="text-muted"
           *ngIf="blockchainService.addressIsFromCurrentUser(tx.fromAddress)"
         >
           <br /><small>(That's yours!)</small>
-        </span> -->
+        </span>
       </td>
       <td class="text-truncate" style="max-width: 100px">
         <a [routerLink]="['/wallet', tx.toAddress]">{{ tx.toAddress }}</a>
 
-        <!-- <span
+        <span
           class="text-muted"
           *ngIf="blockchainService.addressIsFromCurrentUser(tx.toAddress)"
         >
           <br /><small>(That's yours!)</small>
-        </span> -->
+        </span>
       </td>
       <td>
         {{ tx.amount }}

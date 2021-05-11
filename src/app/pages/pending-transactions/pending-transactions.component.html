@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="alert alert-success mt-4" role="alert" *ngIf="justAddedTx">
+    Transaction created successfully!
+  </div>
+  <h1>Pending Transactions</h1>
+
+  <app-transactions-table [transactions]="pendingTransactions">
+  </app-transactions-table>
+
+  <button class="btn btn-primary" (click)="minePendingTransactions()">
+    Mine
+  </button>
+  <div *ngIf="miningInProgress === true">Mining block.. Hang on...</div>
+</div>

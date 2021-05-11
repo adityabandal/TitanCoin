@@ -20,7 +20,7 @@
 
   <div class="form-group">
     <label> Amount </label>
-    <input type="text" class="form-control" [(ngModel)]="newTx.amount" />
+    <input type="number" class="form-control" [(ngModel)]="newTx.amount" />
   </div>
 
   <button (click)="createTransaction()" class="btn btn-primary">

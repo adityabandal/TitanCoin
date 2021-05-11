@@ -5,8 +5,19 @@
       Settings
     </button>
     &nbsp;
-    <button class="btn btn-outline-light" routerLink="/newTransaction">
+    <button class="btn btn-outline-light" routerLink="/new/transaction">
       Create Transaction
+    </button>
+    &nbsp;
+    <button
+      routerLink="/new/transaction/pending"
+      class="btn btn-outline-light"
+      *ngIf="thereArePendingTransactions()"
+    >
+      Pending transactions
+      <span class="badge badge-light">{{
+        blockchain.pendingTransactions.length
+      }}</span>
     </button>
   </div>
 </nav>

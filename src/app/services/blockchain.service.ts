@@ -10,15 +10,21 @@ export class BlockchainService {
   public walletKeys: Array<IWalletKey> = [];
   constructor() {
     this.blockchainInstance.difficulty = 2;
-    this.blockchainInstance.minePendingTransactions('my-wallet-address');
     this.generateWalletKeys();
+    this.blockchainInstance.minePendingTransactions(
+      this.walletKeys[0].publicKey
+    );
   }
 
   public getBlocks() {
     return this.blockchainInstance.chain;
   }
   getPendingTransactions() {
-    this.blockchainInstance.pendingTransactions;
+    return this.blockchainInstance.pendingTransactions;
+  }
+
+  addressIsFromCurrentUser(address) {
+    return address === this.walletKeys[0].publicKey;
   }
 
   minePendingTransactions() {
