@@ -2,6 +2,20 @@
   <h1>Blocks on chain</h1>
   <p>Each card represents a block on the chain.</p>
 
-  <app-block-view *ngFor="let block of blocks" [block]="block">
+  <app-block-view
+    *ngFor="let block of blocks"
+    [block]="block"
+    (click)="showTransactions(block)"
+  >
   </app-block-view>
+</div>
+
+<br />
+<br />
+
+<div class="container">
+  <h1>Transactions in this block</h1>
+
+  <app-transactions-table [transactions]="selectedBlock.transactions">
+  </app-transactions-table>
 </div>

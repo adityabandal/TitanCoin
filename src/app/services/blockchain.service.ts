@@ -7,11 +7,9 @@ import EC from 'elliptic';
 })
 export class BlockchainService {
   public blockchainInstance = new Blockchain();
-  public walletKeys = [];
+  public walletKeys: Array<IWalletKey> = [];
   constructor() {
     this.blockchainInstance.difficulty = 2;
-    this.blockchainInstance.minePendingTransactions('my-wallet-address');
-    this.blockchainInstance.minePendingTransactions('my-wallet-address');
     this.blockchainInstance.minePendingTransactions('my-wallet-address');
     this.generateWalletKeys();
   }
@@ -19,7 +17,15 @@ export class BlockchainService {
   public getBlocks() {
     return this.blockchainInstance.chain;
   }
+  getPendingTransactions() {
+    this.blockchainInstance.pendingTransactions;
+  }
 
+  minePendingTransactions() {
+    this.blockchainInstance.minePendingTransactions(
+      this.walletKeys[0].publicKey
+    );
+  }
   private generateWalletKeys() {
     const ec = new EC.ec('secp256k1');
     const key = ec.genKeyPair();
@@ -29,5 +35,16 @@ export class BlockchainService {
       publicKey: key.getPublic('hex'),
       privateKey: key.getPrivate('hex'),
     });
+    console.log(this.walletKeys);
   }
+
+  addTransaction(tx) {
+    this.blockchainInstance.addTransaction(tx);
+  }
+}
+
+export interface IWalletKey {
+  keyObj: any;
+  publicKey: string;
+  privateKey: string;
 }
