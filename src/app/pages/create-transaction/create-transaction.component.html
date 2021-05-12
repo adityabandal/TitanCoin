@@ -11,16 +11,33 @@
       [(ngModel)]="walletKey.publicKey"
       disabled
     />
+    <small>
+      This is your wallet address on the blockchain. You can't change this
+      address because you can only send coins from own wallet. Only you have
+      private key corresponding to this public key(address), which is used to
+      sign this transaction. Only valid transactions are added to the
+      blockchain.
+    </small>
   </div>
 
   <div class="form-group">
     <label> To Address </label>
     <input type="text" class="form-control" [(ngModel)]="newTx.toAddress" />
+    <small>
+      Enter wallet address you wish to send coins. You can enter any random
+      alphanumeric string here. In real world blockchains, wallet addresses are
+      fixed length strings and each public key(address) has corresponding
+      private key.
+    </small>
   </div>
 
   <div class="form-group">
     <label> Amount </label>
     <input type="number" class="form-control" [(ngModel)]="newTx.amount" />
+    <small
+      >Enter any amount as wallet balance is not checked in this demo. Thus, you
+      may end up with negative balance !</small
+    >
   </div>
 
   <button (click)="createTransaction()" class="btn btn-primary">
