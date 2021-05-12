@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Wallet Details</h1>
+  <p><strong> Address : </strong> <br />{{ this.wallet }}</p>
+  <p><strong> Balance : </strong> <br />{{ this.balance }}</p>
+  <hr />
+  <h1>Transactions of this wallet</h1>
+
+  <app-transactions-table
+    [transactions]="transactions"
+    *ngIf="transactions.length > 0"
+  >
+  </app-transactions-table>
+  <p *ngIf="transactions.length === 0">This wallet has no transactions</p>
+</div>

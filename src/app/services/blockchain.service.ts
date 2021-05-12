@@ -27,6 +27,14 @@ export class BlockchainService {
     return address === this.walletKeys[0].publicKey;
   }
 
+  getBalance(address) {
+    return this.blockchainInstance.getBalanceofAddress(address);
+  }
+
+  getAllTransactions(address) {
+    return this.blockchainInstance.getAllTransactionsOfAddress(address);
+  }
+
   minePendingTransactions() {
     this.blockchainInstance.minePendingTransactions(
       this.walletKeys[0].publicKey
