@@ -17,4 +17,7 @@ export class BlockchainViewerComponent implements OnInit {
     this.selectedBlock = block;
   }
   ngOnInit(): void {}
+  getBlockNumber(block) {
+    return this.blocks.indexOf(block) + 1;
+  }
 }
